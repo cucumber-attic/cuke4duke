@@ -18,10 +18,20 @@
     </repository>
   </distributionManagement>
 
+  <scm>
+    <connection>scm:git:git@github.com/aslakhellesoy/cuke4duke.git</connection>
+    <url>scm:git:git@github.com/aslakhellesoy/cuke4duke.git</url>
+  </scm>
+
   <repositories>
     <repository>
       <id>codehaus</id>
       <url>http://repository.codehaus.org</url>
+    </repository>
+
+    <repository>
+      <id>don-asf-repository</id>
+      <url>http://people.apache.org/~mrdon/repository/</url>
     </repository>
   </repositories>
 
@@ -55,6 +65,31 @@
         </plugin>
       </plugins>
     </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.1-db-1</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.1-db-1</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
   </build>
     
   <dependencyManagement>

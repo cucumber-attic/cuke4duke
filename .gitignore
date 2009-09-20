@@ -8,3 +8,5 @@ pkg
 *.iws
 *.ipr
 *.iml
+pom.xml.releaseBackup
+release.properties

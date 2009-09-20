@@ -6,7 +6,7 @@
   <groupId>cuke4duke</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.1.4</version>
+  <version>0.1.4-SNAPSHOT</version>
   <name>Cuke4Duke Main Project</name>
   <url>http://cukes.info/</url>
 
@@ -19,8 +19,8 @@
   </distributionManagement>
 
   <scm>
-    <connection>scm:git:git@github.com/aslakhellesoy/cuke4duke.git</connection>
-    <url>scm:git:git@github.com/aslakhellesoy/cuke4duke.git</url>
+    <connection>scm:git:git://github.com/aslakhellesoy/cuke4duke.git</connection>
+    <url>scm:git:git://github.com/aslakhellesoy/cuke4duke.git</url>
   </scm>
 
   <repositories>

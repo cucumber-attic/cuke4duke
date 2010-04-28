@@ -10,4 +10,5 @@ pkg
 *.iml
 *.sw?
 .idea
+*.beam
 cuke4duke/test-output/

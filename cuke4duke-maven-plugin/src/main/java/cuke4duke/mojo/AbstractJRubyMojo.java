@@ -117,6 +117,58 @@ public abstract class AbstractJRubyMojo extends AbstractMojo {
     }
 
     /**
+     * Check to see if there's evidence this Gem is already installed.
+     * 
+     * @return
+     */
+    protected boolean isAlreadyInstalled(String gemArgs) {
+        // Only understand argline starting install
+        if (!gemArgs.startsWith("install ")) {
+            return false;
+        }
+
+        String[] args = gemArgs.split("\\s"); // split on whitespace
+        if (args.length < 4) {
+            return false; // need at least 3 args to get gem and version
+        }
+
+        String gem = args[1];
+
+        for (int i = 2; i < args.length; i++) {
+            if (args[i].equalsIgnoreCase("--version") && i + 1 < args.length) {
+                return gemDirExists(gem, args[i + 1]);
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Returns true if {jrubyHome}/gems/{gem}-{version} dir exists, or with -java suffix
+     */
+    private boolean gemDirExists(String gem, String version) {
+
+        File jrubyHome = jrubyHome();
+        if (!jrubyHome.exists() || !jrubyHome.isDirectory()) {
+            return false;
+        }
+
+        File gemsDir = new File(jrubyHome, "gems");
+        if (!gemsDir.exists() | !gemsDir.isDirectory()) {
+            return false;
+        }
+
+        String dirName = gem + "-" + version;
+        File wantedGemDir = new File(gemsDir, dirName);
+        if (wantedGemDir.exists() && wantedGemDir.isDirectory()) {
+            return true;
+        }
+
+        dirName = dirName + "-java";
+        wantedGemDir = new File(gemsDir, dirName);
+        return (wantedGemDir.exists() && wantedGemDir.isDirectory());
+    }
+
+    /**
      * Detect proxy from settings and convert to arg expected by RubyGems.
      */
     protected String getProxyArg() {

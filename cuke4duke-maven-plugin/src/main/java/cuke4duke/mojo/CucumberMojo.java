@@ -1,13 +1,14 @@
 package cuke4duke.mojo;
 
-import cuke4duke.ant.CucumberTask;
-import cuke4duke.internal.Utils;
-import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.tools.ant.types.Commandline;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.tools.ant.types.Commandline;
+
+import cuke4duke.ant.CucumberTask;
+import cuke4duke.internal.Utils;
 
 /**
  * @goal cucumber
@@ -68,9 +69,12 @@ public class CucumberMojo extends AbstractJRubyMojo {
     protected List<String> jvmArgs;
 
     public void execute() throws MojoExecutionException {
-        if (installGems) {
-            for (String gemSpec : gems) {
+        for (String gemSpec : gems) {
+            if (installGems || !isAlreadyInstalled(gemSpec)) {
                 installGem(gemSpec);
+            }
+            else {
+                getLog().info("Found match, so skipped: " + gemSpec);
             }
         }
 
@@ -112,6 +116,7 @@ public class CucumberMojo extends AbstractJRubyMojo {
         return Utils.join(allCucumberArgs.toArray(), " ");
     }
 
+    @Override
     protected List<String> getJvmArgs() {
         return (jvmArgs != null) ? jvmArgs : Collections.<String>emptyList();
     }

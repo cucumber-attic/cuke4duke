@@ -14,3 +14,4 @@ cuke4duke/test-output/
 .bundle
 .rvmrc
 Gemfile.lock
+*.jar

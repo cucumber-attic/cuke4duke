@@ -229,7 +229,9 @@
   <modules>
       <module>components/core</module>
       <module>components/scala</module>
-    <module>cuke4duke-maven-plugin</module>
+      <module>components/cucumber-maven-plugin</module>
+      <!-- JRuby-based mojo -->
+      <module>cuke4duke-maven-plugin</module>
   </modules>
 
   <profiles>
@@ -249,6 +251,7 @@
         <module>examples/celerity</module>
         <!-- Broken now because of new v8 support in Cucumber -->
         <!--module>examples/javascript</module-->
+        <module>examples/java-pure</module>
       </modules>
     </profile>
   </profiles>

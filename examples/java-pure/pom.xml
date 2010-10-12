@@ -11,9 +11,9 @@
         <version>0.4.3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>pure-java</artifactId>
+    <artifactId>java-pure</artifactId>
     <packaging>jar</packaging>
-    <name>Cuke4Duke: Pure Java Example</name>
+    <name>Cuke4Duke: Pure Java Maven Example</name>
 
     <dependencies>
         <dependency>

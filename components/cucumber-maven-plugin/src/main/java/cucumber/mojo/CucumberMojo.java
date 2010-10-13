@@ -119,12 +119,12 @@ public class CucumberMojo extends AbstractMojo {
             throw new MojoExecutionException("System doesn't support formatter encoding", e);
         }
         catch (IOException e) {
-            throw new MojoExecutionException("Failed executing runtime. Features: " + Arrays.deepToString(listOfFeatures.toArray(new String[listOfFeatures.size()])), e);
+            throw new MojoExecutionException("Failed executing runtime. Features: <" + features + ">", e);
         }
     }
 
     @SuppressWarnings({"unchecked"})
-    protected ObjectFactory objectFactory() throws MojoExecutionException {
+    ObjectFactory objectFactory() throws MojoExecutionException {
         try {
             Class<ObjectFactory> clazz = (Class<ObjectFactory>) getClass().getClassLoader().loadClass(objectFactoryFqcn);
             return clazz.getConstructor().newInstance();
@@ -133,7 +133,7 @@ public class CucumberMojo extends AbstractMojo {
         }
     }
 
-    protected List<String> parseFeatures() {
+    List<String> parseFeatures() {
         return Arrays.asList(features.split("[, ]"));
     }
 

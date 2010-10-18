@@ -12,10 +12,12 @@
   #(push-number (Float. %1)))
 
 (When #"^I press (\w+)$"
-  #(calculate ({"divide" / "add" +} %)))
+      #(calculate ({"divide" /,
+		    "add" +,
+		    "multiply" *} %)))
 
 ;; Verbose style
 (Then #"^the current value should be ([\d.]+)$"
   (fn [expected]
-;;    (is (= (current-value) (Float. expected)))))
+    ;;    (is (= (current-value) (Float. expected)))))
     (assert (= (current-value) (Float. expected)))))

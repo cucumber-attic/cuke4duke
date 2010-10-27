@@ -1,3 +1,42 @@
+== 0.4.2 (2010-10-05)
+
+=== Bugfixes
+* error for mvn -Dcucumber.installGems=true cuke4duke:cucumber (#79 Aslak Hellesøy)
+* Fixed inconsistent jar dependencies with help from dependencyManagement
+
+== 0.4.1 (2010-10-03)
+
+=== New Features
+* Pass proxy settings to gem for bootstrapping (#36 Neale Upstone)
+* Skip cucumber tests with -Dmaven.test.skip=true (#73 Neale Upstone)
+
+=== Bugfixes
+* Dependency conflict with cuke4duke 0.3.2, gherkin-2.1.4 and cucumber-0.9.0 ruby gem (#77 Aslak Hellesøy)
+
+== 0.4.0 (2010-10-03)
+
+=== New Features
+* Completely rewrote the build system to use Bundler. (Aslak Hellesøy)
+
+== 0.3.3 (2010-10-01)
+
+=== Bugfixes
+* Add ruby stepdefs to Java example in Ant build script. (Richard Lawrence)
+
+=== New Features
+* Upgraded to Cucumber 0.9.1 (Aslak Hellesøy)
+* Upgraded to Gherkin 2.2.5 (Aslak Hellesøy)
+* Upgraded to Clojure 1.2.0 (Martin Jul)
+* Upgraded to Groovy 1.7.5 (Aslak Hellesøy)
+* Upgraded to Spring 3.0.4.RELEASE (Aslak Hellesøy)
+* Upgraded to PicoContainer 2.11.2 (Jesper Rønn-Jensen)
+* Upgraded to Selenium 2.0a5 (Jesper Rønn-Jensen)
+* Upgraded to Celerity to 0.8.2 (Aslak Hellesøy)
+* Upgraded to Jetty 8.0.0.M1 (Aslak Hellesøy)
+
+=== Removed Features
+* Support for Rhino Javascript. This is due to conflict with V8 Javascript support in Cucumber core. May come back later. (Aslak Hellesøy)
+
 == 0.3.2 (2010-07-15)
 
 Various fixes to bring Cuke4Duke uptodate with latest Gherkin and Cucumber

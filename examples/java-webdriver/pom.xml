@@ -3,27 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>cuke4duke</groupId>
+
+  <parent>
+    <groupId>cuke4duke</groupId>
+    <artifactId>parent</artifactId>
+    <relativePath>../../pom.xml</relativePath>
+    <version>0.4.3-SNAPSHOT</version>
+  </parent>
+
   <artifactId>cuke4duke-java-webdriver-example</artifactId>
   <packaging>jar</packaging>
-  <version>0.3.2</version>
-  <name>Cuke4Duke Java Webdriver Example</name>
-  <url>http://cukes.info/</url>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
+  <name>Cuke4Duke: Java WebDriver Example</name>
 
   <repositories>
-    <repository>
-      <id>codehaus</id>
-      <url>http://repository.codehaus.org</url>
-    </repository>
-    <repository>
-      <id>cukes</id>
-      <url>http://cukes.info/maven</url>
-    </repository>
     <repository>
       <id>openqa-releases</id>
       <name>OpenQA Releases</name>
@@ -31,42 +23,30 @@
     </repository>
   </repositories>
 
-  <pluginRepositories>
-    <pluginRepository>
-      <id>cukes</id>
-      <url>http://cukes.info/maven</url>
-    </pluginRepository>
-  </pluginRepositories>
-
   <dependencies>
     <dependency>
       <groupId>org.picocontainer</groupId>
       <artifactId>picocontainer</artifactId>
-      <version>2.10.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>cuke4duke</groupId>
       <artifactId>cuke4duke</artifactId>
-      <version>0.3.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-htmlunit-driver</artifactId>
-      <version>2.0a2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-firefox-driver</artifactId>
-      <version>2.0a2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -102,7 +82,7 @@
             <cucumberArg>${basedir}/target/test-classes</cucumberArg>
           </cucumberArgs>
           <gems>
-            <gem>install cuke4duke --version 0.3.2</gem>
+            <gem>install cuke4duke --version ${cuke4duke.version}</gem>
           </gems>
         </configuration>
         <executions>

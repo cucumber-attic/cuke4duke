@@ -61,7 +61,7 @@
           </jvmArgs>
           <gems>
             <gem>install celerity --version 0.8.2</gem>
-            <gem>install rspec --version 2.0.0.beta.22</gem>
+            <gem>install rspec --version 2.3.0</gem>
             <gem>install cuke4duke --version ${cuke4duke.version}</gem>
           </gems>
           <cucumberArgs>

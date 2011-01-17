@@ -4,6 +4,13 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>cuke4duke</groupId>
+    <artifactId>parent</artifactId>
+    <relativePath>../../pom.xml</relativePath>
+    <version>0.4.3-SNAPSHOT</version>
+  </parent>
+
   <groupId>cuke4duke</groupId>
   <artifactId>cuke4duke-java-example</artifactId>
   <version>0.4.2</version>

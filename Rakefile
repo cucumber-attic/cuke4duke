@@ -90,7 +90,7 @@ task :default => :build_all
 
 task :build_all => :i18n_generate do
   Dir['lib/*.jar'].each{|jar| FileUtils.rm(jar)}
-  sh('mvn -e -X -P examples clean install')
+  sh('mvn -P examples clean install')
 end
 
 desc 'Generate i18n Step Definitions'

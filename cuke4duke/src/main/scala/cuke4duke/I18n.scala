@@ -272,7 +272,10 @@ trait NO {
 trait PL {
   this: ScalaDsl =>
   val Ale = new Step("Ale")
+  val I = new Step("I")
+  val Jeśli = new Step("Jeśli")
   val Jeżeli = new Step("Jeżeli")
+  val Mając = new Step("Mając")
   val Oraz = new Step("Oraz")
   val Wtedy = new Step("Wtedy")
   val Zakładając = new Step("Zakładając")

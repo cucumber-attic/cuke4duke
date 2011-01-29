@@ -1363,7 +1363,28 @@ public interface I18n {
         @Retention(RetentionPolicy.RUNTIME)
         @Target(ElementType.METHOD)
         @StepDef("pl")
+        public static @interface I {
+            public abstract String value();
+        }
+
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.METHOD)
+        @StepDef("pl")
+        public static @interface Jeśli {
+            public abstract String value();
+        }
+
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.METHOD)
+        @StepDef("pl")
         public static @interface Jeżeli {
+            public abstract String value();
+        }
+
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.METHOD)
+        @StepDef("pl")
+        public static @interface Mając {
             public abstract String value();
         }
 

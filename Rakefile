@@ -21,14 +21,21 @@ class ReleaseHelper < Bundler::GemHelper
       build_gem
     end
 
+    desc 'Install gem'
+    task 'install' do
+      install_gem
+    end
+
     task 'maven_release' do
       maven_release
     end
 
+    desc 'Remove Maven SNAPSHOT version'
     task 'remove_snapshots' do
       remove_snapshots
     end
 
+    desc 'Add Maven SNAPSHOT version'
     task 'add_snapshots' do
       add_snapshots
     end

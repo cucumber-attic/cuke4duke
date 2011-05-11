@@ -165,7 +165,7 @@ class ScalaDslTest extends ScalaDsl with EN with NO {
     } catch {
       case e:RaiseException if rubyClassName(e) == "Cucumber::Pending" => e.getMessage
     }
-    assertEquals("comment", comment)
+    assertEquals("(Cucumber::Pending) comment", comment)
   }
 
   When("pending no comment"){
@@ -180,7 +180,7 @@ class ScalaDslTest extends ScalaDsl with EN with NO {
     } catch {
       case e:RaiseException if rubyClassName(e) == "Cucumber::Pending" => e.getMessage
     }
-    assertEquals("TODO", comment)
+    assertEquals("(Cucumber::Pending) TODO", comment)
   }
 
   When("when f2 -> unit"){ (s: String, i: Int) =>

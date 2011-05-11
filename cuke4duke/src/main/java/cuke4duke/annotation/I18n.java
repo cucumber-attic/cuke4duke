@@ -1474,7 +1474,7 @@ public interface I18n {
         @Retention(RetentionPolicy.RUNTIME)
         @Target(ElementType.METHOD)
         @StepDef("ro")
-        public static @interface Daca {
+        public static @interface Când {
             public abstract String value();
         }
 
@@ -1482,6 +1482,41 @@ public interface I18n {
         @Target(ElementType.METHOD)
         @StepDef("ro")
         public static @interface Dar {
+            public abstract String value();
+        }
+
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.METHOD)
+        @StepDef("ro")
+        public static @interface Datfiind {
+            public abstract String value();
+        }
+
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.METHOD)
+        @StepDef("ro")
+        public static @interface Datefiind {
+            public abstract String value();
+        }
+
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.METHOD)
+        @StepDef("ro")
+        public static @interface Datifiind {
+            public abstract String value();
+        }
+
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.METHOD)
+        @StepDef("ro")
+        public static @interface Daţifiind {
+            public abstract String value();
+        }
+
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.METHOD)
+        @StepDef("ro")
+        public static @interface Dațifiind {
             public abstract String value();
         }
 
@@ -1491,41 +1526,17 @@ public interface I18n {
         public static @interface Si {
             public abstract String value();
         }
-    }
-
-    public class RO_RO {
 
         @Retention(RetentionPolicy.RUNTIME)
         @Target(ElementType.METHOD)
-        @StepDef("ro-RO")
-        public static @interface Atunci {
+        @StepDef("ro")
+        public static @interface Şi {
             public abstract String value();
         }
 
         @Retention(RetentionPolicy.RUNTIME)
         @Target(ElementType.METHOD)
-        @StepDef("ro-RO")
-        public static @interface Când {
-            public abstract String value();
-        }
-
-        @Retention(RetentionPolicy.RUNTIME)
-        @Target(ElementType.METHOD)
-        @StepDef("ro-RO")
-        public static @interface Dacă {
-            public abstract String value();
-        }
-
-        @Retention(RetentionPolicy.RUNTIME)
-        @Target(ElementType.METHOD)
-        @StepDef("ro-RO")
-        public static @interface Dar {
-            public abstract String value();
-        }
-
-        @Retention(RetentionPolicy.RUNTIME)
-        @Target(ElementType.METHOD)
-        @StepDef("ro-RO")
+        @StepDef("ro")
         public static @interface Și {
             public abstract String value();
         }

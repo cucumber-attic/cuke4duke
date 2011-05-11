@@ -8,12 +8,12 @@
     <groupId>cuke4duke</groupId>
     <artifactId>parent</artifactId>
     <relativePath>../../pom.xml</relativePath>
-    <version>0.4.3</version>
+    <version>0.4.4</version>
   </parent>
 
   <groupId>cuke4duke</groupId>
   <artifactId>cuke4duke-java-example</artifactId>
-  <version>0.4.2</version>
+  <version>0.4.4</version>
   <packaging>jar</packaging>
   <name>Cuke4Duke: Java Example</name>
 
@@ -39,19 +39,16 @@
     <dependency>
       <groupId>cuke4duke</groupId>
       <artifactId>cuke4duke</artifactId>
-      <version>0.4.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.picocontainer</groupId>
       <artifactId>picocontainer</artifactId>
-      <version>2.11.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -89,7 +86,7 @@
       <plugin>
         <groupId>cuke4duke</groupId>
         <artifactId>cuke4duke-maven-plugin</artifactId>
-        <version>0.4.2</version>
+        <version>0.4.4</version>
         <configuration>
           <jvmArgs>
             <!-- Debugging. See http://wiki.github.com/aslakhellesoy/cuke4duke/debug-cuke4duke-steps -->
@@ -121,7 +118,7 @@
             <cucumberArg>${basedir}/src/test/ruby</cucumberArg>
           </cucumberArgs>
           <gems>
-            <gem>install cuke4duke --version 0.4.2</gem>
+            <gem>install cuke4duke --version 0.4.4</gem>
           </gems>
         </configuration>
         <executions>

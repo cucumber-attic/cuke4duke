@@ -16,8 +16,8 @@ Using RVM:
 <pre>
 mkdir -p ~/.m2/repository/.jruby
 GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby gem install bundler
-GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby bundle install
-GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby rake install
+GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby ~/.m2/repository/.jruby/bin/bundle install
+GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby ~/.m2/repository/.jruby/bin/rake install
 </pre>
 
 Not using RVM:
@@ -31,7 +31,7 @@ GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby jruby -S rake 
 With the gems installed, build the whole shebang (including the examples):
 
 Using RVM:
-<pre>rake build_all</pre>
+<pre>GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby ~/.m2/repository/.jruby/bin/rake build_all</pre>
 
 Not using RVM:
 <pre>jruby -S rake build_all</pre>

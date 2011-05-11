@@ -293,16 +293,15 @@ trait RO {
   this: ScalaDsl =>
   val Atunci = new Step("Atunci")
   val Cand = new Step("Cand")
-  val Daca = new Step("Daca")
-  val Dar = new Step("Dar")
-  val Si = new Step("Si")
-}
-trait RO_RO {
-  this: ScalaDsl =>
-  val Atunci = new Step("Atunci")
   val Când = new Step("Când")
-  val Dacă = new Step("Dacă")
   val Dar = new Step("Dar")
+  val Datfiind = new Step("Datfiind")
+  val Datefiind = new Step("Datefiind")
+  val Datifiind = new Step("Datifiind")
+  val Daţifiind = new Step("Daţifiind")
+  val Dațifiind = new Step("Dațifiind")
+  val Si = new Step("Si")
+  val Şi = new Step("Şi")
   val Și = new Step("Și")
 }
 trait RU {

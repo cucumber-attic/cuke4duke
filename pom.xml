@@ -208,6 +208,10 @@
       <id>cukes</id>
       <url>http://cukes.info/maven</url>
     </pluginRepository>
+    <pluginRepository>
+      <id>apache.snapshots</id>
+      <url>http://repository.apache.org/snapshots/</url>
+    </pluginRepository>
   </pluginRepositories>
 
   <modules>

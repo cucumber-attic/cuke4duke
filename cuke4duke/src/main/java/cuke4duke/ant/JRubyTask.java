@@ -1,16 +1,35 @@
 package cuke4duke.ant;
 
 import org.apache.tools.ant.BuildException;
+import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.Java;
 import org.apache.tools.ant.types.Environment;
 import org.apache.tools.ant.types.Path;
 
 import java.io.File;
+import java.util.Iterator;
 
 public class JRubyTask extends Java {
     public JRubyTask() {
         setFork(true);
         setFailonerror(true);
+    }
+    
+    protected boolean hasArgNamed(String s) {
+       String[] vmargs = getCommandLine().getVmCommand().getArguments();
+       if (vmargs.length > 0) {
+	       for (int i = 0; i <= vmargs.length - 1; i++) {
+	    	   String arg = vmargs[i];
+	    	   if (arg.matches(".*" + s + ".*")) {
+	    		   log("Arg " + arg + " matched search string " + s,Project.MSG_VERBOSE);
+	    		   return true;
+	    	   } else {
+	    		   log("Arg " + arg + " did not match search string " + s,Project.MSG_VERBOSE);
+	    	   }
+	       }
+       }
+       log("No match for search string " + s,Project.MSG_VERBOSE);
+       return false;
     }
 
     @Override

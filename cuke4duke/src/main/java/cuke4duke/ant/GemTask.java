@@ -1,15 +1,20 @@
 package cuke4duke.ant;
 
+import java.util.Iterator;
+
 import org.apache.tools.ant.BuildException;
+import org.apache.tools.ant.Project;
 
 public class GemTask extends JRubyTask {
     private String args = "";
 
-    public GemTask() {
-        createJvmarg().setValue("-Xmx384m");
-    }
-
     public void execute() throws BuildException {
+    	if (! hasArgNamed("Xmx")) {
+    		log("Found no existing -Xmx arg, setting to 384m",Project.MSG_VERBOSE);
+    		createJvmarg().setValue("-Xmx384m");
+    	} else {
+    		log("Found an existing -Xmx arg, not using default",Project.MSG_VERBOSE);
+    	}
         createArg().setValue("-S");
         createArg().setValue("gem");
         getCommandLine().createArgument().setLine(args);

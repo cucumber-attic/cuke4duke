@@ -38,7 +38,7 @@ public abstract class AbstractJRubyMojo extends AbstractMojo {
      * @required
      * @readonly
      */
-    private Settings settings;
+    protected Settings settings;
 
     /**
      * @parameter expression="${project.basedir}"
@@ -125,7 +125,11 @@ public abstract class AbstractJRubyMojo extends AbstractMojo {
             return "";
         }
 
-        String proxyArg = " --http-proxy " + activeProxy.getProtocol() + "://" + activeProxy.getHost() + ":"
+        String username = activeProxy.getUsername();
+		String password = activeProxy.getPassword();
+		String auth = username != null && username.length() > 0 ? username+":"+password+"@" : "";
+		
+        String proxyArg = " --http-proxy " + activeProxy.getProtocol() + "://"+ auth + activeProxy.getHost() + ":"
                 + activeProxy.getPort();
         getLog().debug("Adding proxy from settings.xml: " + proxyArg);
         return proxyArg;

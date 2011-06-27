@@ -15,10 +15,10 @@ public class Steps {
     }
 
     /**
-     * See {@link cuke4duke.StepMother#announce(String)}.
+     * See {@link cuke4duke.StepMother#puts(String)}.
      */
-    protected void announce(String message) {
-        stepMother.announce(message);
+    protected void puts(String message) {
+        stepMother.puts(message);
     }
 
     /**

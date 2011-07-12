@@ -11,14 +11,15 @@ Gem::Specification.new do |s|
   s.email       = 'cukes@googlegroups.com'
   s.homepage    = 'http://cukes.info'
 
-  s.add_dependency 'cucumber', '>= 0.10.2'
+  s.add_dependency 'cucumber', '= 1.0.0'
   s.add_development_dependency 'rspec', '>= 2.5.0'
   s.add_development_dependency 'celerity', '>= 0.8.9'
   s.add_development_dependency 'jruby-openssl', '>= 0.7.4'
   s.add_development_dependency 'bundler', '>= 1.0.13'
   s.add_development_dependency 'rake', '>= 0.8.7'
 
-  s.files            = `git ls-files -- lib`.split("\n") + ["lib/#{Cuke4Duke::JAR_NAME}", 'pom.xml']
+#  s.files            = `git ls-files -- lib`.split("\n") + ["lib/#{Cuke4Duke::JAR_NAME}", 'pom.xml']
+  s.files            = `git ls-files -- lib`.split("\n") + ['pom.xml']
   s.executables      = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.extra_rdoc_files = ["LICENCE", "README.textile"]
   s.rdoc_options     = ["--charset=UTF-8"]

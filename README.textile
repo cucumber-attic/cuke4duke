@@ -10,7 +10,7 @@ Then you'll need "git":http://git-scm.com/
 You'll also need "JRuby":http://jruby.org installed to build Cuke4Duke. If you're on OS X or Linux it's recommended you install JRuby
 with "RVM":http://rvm.beginrescueend.com
 
-With JRuby installed - bootstrap your environment by installing some gems:
+With JRuby installed - bootstrap your environment by installing some gems (do this in the root directory of cuke4duke):
 
 Using RVM:
 <pre>

@@ -1,6 +1,11 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="Cuke4Duke Java Demo" default="cucumber" basedir=".">
   <property name="jruby.home" value="${basedir}/lib/.jruby"/>
 
+    <property name="ivy.install.version" value="2.2.0" />
+    <property name="ivy.jar.dir" value="${basedir}/lib_ivy" />
+    <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar"/>
+
+
   <target name="-compile-steps" depends="-define-paths">
     <mkdir dir="target/test-classes"/>
     <javac srcdir="src/test/java" destdir="target/test-classes" classpathref="compile.classpath" encoding="UTF-8"/>
@@ -18,12 +23,27 @@
     </cucumber>
   </target>
 
-  <target name="-download-jars" if="ivy">
+  <target name="download-ivy" unless="skip.download">
+    <mkdir dir="${ivy.jar.dir}"/>
+    <!-- download Ivy from web site so that it can be used even without any special installation -->
+    <echo message="installing ivy..."/>
+    <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true"/>
+  </target>
+  <target name="install-ivy" depends="download-ivy" description="install ivy">
+    <!-- try to load ivy here from local ivy dir, in case the user has not already dropped
+         it into ant's lib dir (note that the latter copy will always take precedence).
+         We will not fail as long as local lib dir exists (it may be empty) and
+         ivy is in at least one of ant's lib dir or the local lib dir. -->
+    <path id="ivy.lib.path"><fileset dir="${ivy.jar.dir}" includes="*.jar"/></path>
+    <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
+  </target>
+  <target name="-download-jars" depends="install-ivy" if="ivy" description="download jars with ivy">
     <ivy:retrieve/>
   </target>
 
   <target name="-install-gems" depends="-define-paths" if="gems">
     <taskdef name="gem" classname="cuke4duke.ant.GemTask" classpathref="compile.classpath"/>
+    <gem args="install cucumber --version 1.0.0"/><!-- Needs to be 1.0.0, not 1.0.1 until bug is fixed -->
     <gem args="install cuke4duke --version 0.4.4"/>
   </target>
 

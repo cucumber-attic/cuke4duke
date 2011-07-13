@@ -8,8 +8,20 @@
 
   <target name="-compile-steps" depends="-define-paths">
     <mkdir dir="target/test-classes"/>
-    <javac srcdir="src/test/java" destdir="target/test-classes" classpathref="compile.classpath" encoding="UTF-8"/>
+    <javac includeantruntime="false" srcdir="src/test/java" destdir="target/test-classes" classpathref="compile.classpath" encoding="UTF-8"/>
   </target>
+
+  <target name="checkgems" description="force gem/ivy download the first time ant is run">
+    <available property="lib.exists" file="lib/.jruby"/>
+    <!-- force ivy and gems download if .jruby directory does not exist -->
+    <condition property="ivy" value="true">
+      <not><isset property="lib.exists"/></not>
+    </condition>
+    <condition property="gems" value="true">
+      <not><isset property="lib.exists"/></not>
+    </condition>
+</target>
+
 
   <target name="cucumber" depends="-compile-steps,-install-gems" description="Run Cucumber">
     <mkdir dir="target/junit-report"/>
@@ -23,7 +35,7 @@
     </cucumber>
   </target>
 
-  <target name="download-ivy" unless="skip.download">
+  <target name="download-ivy" depends="checkgems" if="ivy" unless="skip.download">
     <mkdir dir="${ivy.jar.dir}"/>
     <!-- download Ivy from web site so that it can be used even without any special installation -->
     <echo message="installing ivy..."/>
@@ -42,6 +54,7 @@
   </target>
 
   <target name="-install-gems" depends="-define-paths" if="gems">
+    <property name="did.gem.install" value="true" />
     <taskdef name="gem" classname="cuke4duke.ant.GemTask" classpathref="compile.classpath"/>
     <gem args="install cucumber --version 1.0.0"/><!-- Needs to be 1.0.0, not 1.0.1 until bug is fixed -->
     <gem args="install cuke4duke --version 0.4.4"/>

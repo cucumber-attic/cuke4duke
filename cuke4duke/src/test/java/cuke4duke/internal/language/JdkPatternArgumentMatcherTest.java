@@ -29,6 +29,12 @@ public class JdkPatternArgumentMatcherTest {
         assertVariables("Jæ (.+) ålsker (.+) lændet", "Jæ vø ålsker døtte lændet", "vø", 4, "døtte", 16);
     }
 
+    @Test
+    public void shouldDealWithOptionalCaptureGroups() throws UnsupportedEncodingException {
+        assertVariables("It should( not)? be ok (.+)", "It should be ok dude", "", -1, "dude", 16);
+        assertVariables("It should( still)? be ok (.+)", "It should still be ok mate", " still", 9, "mate", 22);
+    }
+
     private void assertVariables(String regex, String string, String v1, int pos1, String v2, int pos2) throws UnsupportedEncodingException {
         List<StepArgument> args = JdkPatternArgumentMatcher.argumentsFrom(Pattern.compile(regex), string);
         assertEquals(2, args.size());

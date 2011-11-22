@@ -1,3 +1,7 @@
+h1. WARNING
+
+This project is defunkt, and has been replaced by "Cucumber-JVM":https://github.com/cucumber/cucumber-jvm. For more info see "this thread":http://groups.google.com/group/cukes/browse_thread/thread/299d94d38500e8c3.
+
 h1. Cuke4Duke
 
 Cuke4Duke is an addon to Cucumber, making it possible to write step definitions in several different JVM languages.

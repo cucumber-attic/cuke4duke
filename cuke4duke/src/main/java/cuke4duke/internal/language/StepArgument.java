@@ -7,8 +7,13 @@ public class StepArgument {
     private final int byteOffset;
 
     public StepArgument(String val, int charOffset, String stepName) throws UnsupportedEncodingException {
-        this.byteOffset = stepName.substring(0, charOffset).getBytes("UTF-8").length;
-        this.val = val;
+        if (charOffset != -1) {
+            this.byteOffset = stepName.substring(0, charOffset).getBytes("UTF-8").length;
+            this.val = val;
+        } else {
+            this.byteOffset = -1;
+            this.val = "";
+        }
     }
 
     public String getVal() {

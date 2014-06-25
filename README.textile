@@ -18,18 +18,18 @@ With JRuby installed - bootstrap your environment by installing some gems:
 
 Using RVM:
 <pre>
-mkdir -p ~/.m2/repository/.jruby
+@mkdir -p ~/.m2/repository/.jruby
 GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby gem install bundler
 GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby ~/.m2/repository/.jruby/bin/bundle install
-GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby ~/.m2/repository/.jruby/bin/rake install
+GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby ~/.m2/repository/.jruby/bin/rake install@
 </pre>
 
 Not using RVM:
 <pre>
-mkdir -p ~/.m2/repository/.jruby
+@mkdir -p ~/.m2/repository/.jruby
 GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby jruby -S gem install bundler
 GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby jruby -S bundle install
-GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby jruby -S rake install
+GEM_HOME=~/.m2/repository/.jruby GEM_PATH=~/.m2/repository/.jruby jruby -S rake install@
 </pre>
 
 With the gems installed, build the whole shebang (including the examples):

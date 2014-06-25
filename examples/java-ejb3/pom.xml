@@ -19,24 +19,28 @@
     <dependency>
       <groupId>org.picocontainer</groupId>
       <artifactId>picocontainer</artifactId>
+      <version>2.11.2</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>cuke4duke</groupId>
       <artifactId>cuke4duke</artifactId>
+      <version>0.4.2</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>gherkin</groupId>
       <artifactId>gherkin</artifactId>
+      <version>2.2.9</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <version>4.8.1</version>
       <scope>test</scope>
     </dependency>
 

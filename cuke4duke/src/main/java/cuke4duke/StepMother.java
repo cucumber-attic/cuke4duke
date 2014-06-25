@@ -24,7 +24,7 @@ public interface StepMother {
      *
      * @param message what to print.
      */
-    void announce(String message);
+    void puts(String message);
 
     /**
      * Embed a file in the formatter outputs. This may or may

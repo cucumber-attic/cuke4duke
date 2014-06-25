@@ -68,13 +68,13 @@ class ScalaDslTest extends ScalaDsl with EN with NO {
       def invoke(regex:String, py:String){ step(regex).invoke(ra(py)) }
       def ask(question:String, timeoutSecs:Int) = {asked = (question, timeoutSecs); "x"}
       def embed(file:String, mimeType:String) = embedded = (file, mimeType)
-      def announce(message:String) = announced = message
+      def puts(message:String) = putsed = message
     })
   }
 
   var asked:(String, Int) = _
   var embedded:(String, String) = _
-  var announced:String = _
+  var putsed:String = _
 
   Before{
     result = "before hook 0"
@@ -362,7 +362,7 @@ class ScalaDslTest extends ScalaDsl with EN with NO {
   }
 
   try{
-    announce("should blow up")
+    puts("should blow up")
   } catch {
     case _:IllegalStateException =>
   }
@@ -378,8 +378,8 @@ class ScalaDslTest extends ScalaDsl with EN with NO {
     assertEquals("x", x)
   }
 
-  Given("announce"){
-    announce("announced")
+  Given("puts"){
+    puts("puts")
   }
 
   Given("embed"){
@@ -393,9 +393,9 @@ class ScalaDslTest extends ScalaDsl with EN with NO {
   }
 
   @Test
-  def test_announce {
-    step("announce").invoke(ra())
-    assertEquals("announced", announced)
+  def test_puts {
+    step("puts").invoke(ra())
+    assertEquals("puts", putsed)
   }
 
   @Test

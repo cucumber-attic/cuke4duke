@@ -63,7 +63,7 @@ trait ScalaDsl {
    * This is an alternative to using "println" - it will display
    * nicer, and in all outputs (in case you use several formatters)
    */
-  def announce(message: String) = mode.announce(message)
+  def puts(message: String) = mode.puts(message)
 
   /*
    * Embed a file in the formatter outputs. This may or may
@@ -173,7 +173,7 @@ trait ScalaDsl {
 
     def ask(question: String, timout: Int): String
 
-    def announce(message: String): Unit
+    def puts(message: String): Unit
 
     def embed(file: String, mimeType: String): Unit
   }
@@ -192,7 +192,7 @@ trait ScalaDsl {
 
     override def ask(question: String, timeout: Int) = illegalState("'ask' is only intended to be used from inside a Step")
 
-    override def announce(message: String) = illegalState("'announce' is only intended to used from inside a Step")
+    override def puts(message: String) = illegalState("'puts' is only intended to used from inside a Step")
 
     override def embed(file: String, mimeType: String) = illegalState("'embed' is only intended to be used from inside a Step")
   }
@@ -214,7 +214,7 @@ trait ScalaDsl {
 
       override def ask(question: String, timeout: Int) = stepMother.ask(question, timeout)
 
-      override def announce(message: String) = stepMother.announce(message)
+      override def puts(message: String) = stepMother.puts(message)
 
       override def embed(file: String, mimeType: String) = stepMother.embed(file, mimeType)
     }
